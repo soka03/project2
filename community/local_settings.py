@@ -1,19 +1,20 @@
-
 # ex. 마이그레이트를 위해 수정한 local_settings.py
-
+import pymysql
+pymysql.install_as_MySQLdb()
 from pathlib import Path
 from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = True
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+     }
+}
 
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -24,3 +25,4 @@ DATABASES = {
         'PORT': 3306,
     }
 }
+"""
